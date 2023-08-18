@@ -4,11 +4,7 @@ import Cart from "./UI/Cart";
 import { useState } from "react";
 
 const PhoneItem = (props) => {
-  const [hoveredColorIndex, setHoveredColorIndex] = useState(null);
-
-  const showColorHandler = (index) => {
-    setHoveredColorIndex(index);
-  };
+  const [color, setColor] = useState("");
 
   return (
     <div className="flex items-center justify-evenly mt-8">
@@ -25,29 +21,18 @@ const PhoneItem = (props) => {
           </span>
         </Cart>
         <p>Pick your finish</p>
-        <div>
-          Color -
-          {hoveredColorIndex !== null && (
-            <p>{props.colorName[hoveredColorIndex]}</p>
-          )}
-        </div>
+        <p>Color - {color}</p>
         <div className="flex gap-2">
-          <span
-            className="dot"
-            style={{ backgroundColor: props.colorName }}
-          ></span>
-          {/* <span
-            className="dot"
-            style={{ backgroundColor: props.colorName2 }}
-          ></span>
-          <span
-            className="dot"
-            style={{ backgroundColor: props.colorName3 }}
-          ></span>
-          <span
-            className="dot"
-            style={{ backgroundColor: props.colorName4 }}
-          ></span> */}
+          {props.colors.map((color) => {
+            return (
+              <span
+                className="dot"
+                style={{ backgroundColor: color }}
+                onClick={() => setColor(color)}
+                onMouseOver={() => setColor(color)}
+              ></span>
+            );
+          })}
         </div>
         <p>Storage</p>
         <div className="flex gap-2">

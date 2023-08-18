@@ -6,12 +6,8 @@ import iphoneSE from "./images/iphone_se.jpg";
 
 const PhoneList = () => {
   const colorArray = ["#FF5733", "#0074D9", "#2ECC40", "#FFDC00"];
-
-  const [color, setColor] = colorArray;
-
-  const showColorHandler = () => {
-    setColor(colorArray);
-  };
+  const colorArray1 = ["#2ECC40", "#FFDC00"];
+  const colorArray2 = ["#FF5733", "#0074D9", "#2ECC40"];
 
   return (
     <div className="flex flex-col">
@@ -23,18 +19,28 @@ const PhoneList = () => {
         price="$999"
         description="6.1-inch display"
         leasing="or $41.62/mo"
-        storage="125GB"
-        colorName={colorArray[0]}
-        // colorName2={colorArray[1]}
-        // colorName3={colorArray[2]}
-        // colorName4={colorArray[3]}
+        storage="128GB"
+        colors={colorArray}
       />
-      <PhoneItem name="Iphone 13" image={iphone13} width={320} price="$699" />
       <PhoneItem
-        name="Iphone 14 Pro"
+        name="Iphone 13"
+        image={iphone13}
+        width={320}
+        price="$699"
+        description="6.1-inch display"
+        leasing="or $29.12/mo"
+        storage="128GB"
+        colors={colorArray1}
+      />
+      <PhoneItem
+        name="Iphone SE"
         image={iphoneSE}
         width={380}
         price="$429"
+        description="4.7-inch display"
+        leasing="or $17.87/mo"
+        storage="64GB"
+        colors={colorArray2}
       />
     </div>
   );
