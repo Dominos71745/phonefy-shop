@@ -1,5 +1,5 @@
 import React from "react";
-import "./Cart.css";
+import "./CartUI.css";
 
 const Cart = (props) => {
   const { width, height } = props;
