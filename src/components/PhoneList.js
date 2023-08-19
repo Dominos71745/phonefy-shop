@@ -5,16 +5,22 @@ import iphone14Pro from "./images/iphone_14.jpg";
 import iphoneSE from "./images/iphone_se.jpg";
 
 const PhoneList = () => {
-  const colorArray = ["#645B6C", "#494351", "#F3E5CB", "#F3F5F4"];
-  const colorArray1 = [
-    "#447792",
-    "#FBE2DD",
-    "#42474D",
-    "#FBF7F4",
-    "#475846",
-    "#C82333",
+  const colorArray = [
+    { hex: "#000", name: "Black" },
+    // "#494351",
+    // "#F3E5CB",
+    // "#F3F5F4",
   ];
-  const colorArray2 = ["#333941", "#FBF7F4", "#C82333"];
+  const colorArray1 = [
+    { hex: "#447792", name: "Blue" },
+    // "#447792",
+    // "#FBE2DD",
+    // "#42474D",
+    // "#FBF7F4",
+    // "#475846",
+    // "#C82333",
+  ];
+  // const colorArray2 = ["#333941", "#FBF7F4", "#C82333"];
 
   return (
     <div className="flex flex-col">
@@ -39,7 +45,7 @@ const PhoneList = () => {
         storage="128GB"
         colors={colorArray1}
       />
-      <PhoneItem
+      {/* <PhoneItem
         name="Iphone SE"
         image={iphoneSE}
         width={320}
@@ -48,7 +54,7 @@ const PhoneList = () => {
         leasing="or $17.87/mo"
         storage="64GB"
         colors={colorArray2}
-      />
+      /> */}
     </div>
   );
 };
