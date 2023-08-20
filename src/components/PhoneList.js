@@ -6,21 +6,24 @@ import iphoneSE from "./images/iphone_se.jpg";
 
 const PhoneList = () => {
   const colorArray = [
-    { hex: "#000", name: "Black" },
-    // "#494351",
-    // "#F3E5CB",
-    // "#F3F5F4",
+    { hex: "#61586B", name: "Midnight Purple" },
+    { hex: "#F4E8CE", name: "Gold" },
+    { hex: "#F1F3F2", name: "Silver" },
+    { hex: "#4D4C4A", name: "Space Black" },
   ];
   const colorArray1 = [
     { hex: "#447792", name: "Blue" },
-    // "#447792",
-    // "#FBE2DD",
-    // "#42474D",
-    // "#FBF7F4",
-    // "#475846",
-    // "#C82333",
+    { hex: "#FBE2DD", name: "Pink" },
+    { hex: "#42474D", name: "Midnight" },
+    { hex: "#FBF7F4", name: "Starlight" },
+    { hex: "#465745", name: "Green" },
+    { hex: "#C82233", name: "Red" },
   ];
-  // const colorArray2 = ["#333941", "#FBF7F4", "#C82333"];
+  const colorArray2 = [
+    { hex: "#42474D", name: "Midnight" },
+    { hex: "#FBF7F4", name: "Starlight" },
+    { hex: "#C82233", name: "Red" },
+  ];
 
   return (
     <div className="flex flex-col">
@@ -45,7 +48,7 @@ const PhoneList = () => {
         storage="128GB"
         colors={colorArray1}
       />
-      {/* <PhoneItem
+      <PhoneItem
         name="Iphone SE"
         image={iphoneSE}
         width={320}
@@ -54,7 +57,7 @@ const PhoneList = () => {
         leasing="or $17.87/mo"
         storage="64GB"
         colors={colorArray2}
-      /> */}
+      />
     </div>
   );
 };
