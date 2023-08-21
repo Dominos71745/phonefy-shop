@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const ColorMapper = ({ colors }) => {
   const [color, setColor] = useState({});
-  console.log(color);
 
   return (
     <div>

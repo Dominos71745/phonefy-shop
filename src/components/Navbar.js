@@ -1,6 +1,7 @@
+import CartButton from "./CartButton";
 import Button from "./UI/Button";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div className="flex justify-evenly items-center bg-black text-white h-16">
       <h1 className="text-3xl">Phonefy</h1>
@@ -10,7 +11,7 @@ const NavBar = () => {
         placeholder="Search Phonefy"
       />
       <Button>Login</Button>
-      <Button>Cart</Button>
+      <CartButton onClick={props.onShowCart} />
     </div>
   );
 };

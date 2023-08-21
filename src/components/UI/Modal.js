@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-import { ReactDOM } from "react-dom";
+import ReactDOM from "react-dom";
+import "../UI/Modal.css";
 
 const Backdrop = (props) => {
   return <div className="backdrop" onClick={props.onClose}></div>;

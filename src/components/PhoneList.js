@@ -1,4 +1,6 @@
+import { useState } from "react";
 import BrandList from "./BrandList";
+import Cart from "./Cart";
 import PhoneItem from "./PhoneItem";
 import iphone13 from "./images/iphone_13.png";
 import iphone14Pro from "./images/iphone_14.jpg";
@@ -25,6 +27,14 @@ const PhoneList = () => {
     { hex: "#C82233", name: "Red" },
   ];
 
+  const [cart, setCart] = useState([]);
+  const [cartIsShown, setCartIsShown] = useState(false);
+  console.log(cart);
+
+  const cartIsShownHandler = () => {
+    setCartIsShown(true);
+  };
+
   return (
     <div className="flex flex-col">
       <BrandList />
@@ -37,6 +47,9 @@ const PhoneList = () => {
         leasing="or $41.62/mo"
         storage="128GB"
         colors={colorArray}
+        cart={cart}
+        setCart={setCart}
+        toggleCart={cartIsShownHandler}
       />
       <PhoneItem
         name="Iphone 13"
@@ -47,6 +60,9 @@ const PhoneList = () => {
         leasing="or $29.12/mo"
         storage="128GB"
         colors={colorArray1}
+        cart={cart}
+        setCart={setCart}
+        toggleCart={cartIsShownHandler}
       />
       <PhoneItem
         name="Iphone SE"
@@ -57,7 +73,11 @@ const PhoneList = () => {
         leasing="or $17.87/mo"
         storage="64GB"
         colors={colorArray2}
+        cart={cart}
+        setCart={setCart}
+        toggleCart={cartIsShownHandler}
       />
+      {cartIsShown && <Cart cartItems={cart} />}
     </div>
   );
 };

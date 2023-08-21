@@ -4,6 +4,17 @@ import Cart from "./UI/CartUI";
 import ColorMapper from "./ColorMapper";
 
 const PhoneItem = (props) => {
+  const addToCart = () => {
+    props.setCart([
+      ...props.cart,
+      {
+        name: props.name,
+        price: props.price,
+        storage: props.storage,
+      },
+    ]);
+    props.toggleCart();
+  };
   return (
     <div className="flex items-center justify-center mt-4">
       <img width={props.width} src={props.image} alt={props.name} />
@@ -26,7 +37,7 @@ const PhoneItem = (props) => {
             <p>{props.storage}</p>
           </Cart>
           <Cart width="150px" height="60px">
-            <Button>Add to cart</Button>
+            <Button onClick={addToCart}>Add to cart</Button>
           </Cart>
         </div>
       </div>
