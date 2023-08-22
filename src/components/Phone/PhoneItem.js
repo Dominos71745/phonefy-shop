@@ -1,8 +1,8 @@
-import Button from "./UI/Button";
+import Button from "../UI/Button";
 import "./PhoneItem.css";
-import Cart from "./UI/CartUI";
-import ColorMapper from "./ColorMapper";
-import { useCart } from "./CartContext";
+import Cart from "../UI/CartUI";
+import ColorMapper from "../Misc/ColorMapper";
+import { useCart } from "../Cart/CartContext";
 
 const PhoneItem = ({
   name,

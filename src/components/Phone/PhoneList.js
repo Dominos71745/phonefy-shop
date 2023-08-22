@@ -1,9 +1,9 @@
-import BrandList from "./BrandList";
+import BrandList from "../Misc/BrandList";
 import PhoneItem from "./PhoneItem";
-import iphone13 from "./images/iphone_13.png";
-import iphone14Pro from "./images/iphone_14.jpg";
-import iphoneSE from "./images/iphone_se.jpg";
-import { useCart } from "./CartContext";
+import iphone13 from "../../assets/iphone_13.png";
+import iphone14Pro from "../../assets/iphone_14.jpg";
+import iphoneSE from "../../assets/iphone_se.jpg";
+import { useCart } from "../Cart/CartContext";
 
 const PhoneList = () => {
   const { cartItems, setCartItems } = useCart();

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import NavBar from "./components/Navbar";
-import PhoneList from "./components/PhoneList";
-import Cart from "./components/Cart";
-import { CartProvider } from "./components/CartContext";
+import NavBar from "./components/UI/Navbar";
+import PhoneList from "./components/Phone/PhoneList";
+import Cart from "./components/Cart/Cart";
+import { CartProvider } from "./components/Cart/CartContext";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);

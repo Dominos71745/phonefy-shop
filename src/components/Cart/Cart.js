@@ -1,8 +1,8 @@
 import React from "react";
-import Modal from "./UI/Modal";
+import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
 import { useCart } from "./CartContext";
-import Button from "./UI/Button";
+import Button from "../UI/Button";
 
 const Cart = (props) => {
   const { cartItems } = useCart();

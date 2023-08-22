@@ -1,5 +1,4 @@
-import CartButton from "./CartButton";
-import Button from "./UI/Button";
+import CartButton from "../Cart/CartButton";
 
 const NavBar = (props) => {
   return (
