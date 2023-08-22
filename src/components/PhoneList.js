@@ -38,7 +38,7 @@ const PhoneList = () => {
       <PhoneItem
         name="Iphone 14 Pro"
         image={iphone14Pro}
-        price="$999"
+        price="999"
         description="6.1-inch display"
         leasing="or $41.62/mo"
         storage="128GB"
@@ -49,7 +49,7 @@ const PhoneList = () => {
         name="Iphone 13"
         image={iphone13}
         width={320}
-        price="$699"
+        price="699"
         description="6.1-inch display"
         leasing="or $29.12/mo"
         storage="128GB"
@@ -60,7 +60,7 @@ const PhoneList = () => {
         name="Iphone SE"
         image={iphoneSE}
         width={320}
-        price="$429"
+        price="429"
         description="4.7-inch display"
         leasing="or $17.87/mo"
         storage="64GB"

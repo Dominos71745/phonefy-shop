@@ -10,7 +10,6 @@ const NavBar = (props) => {
         type="text"
         placeholder="Search Phonefy"
       />
-      <Button>Login</Button>
       <CartButton onClick={props.onShowCart} />
     </div>
   );

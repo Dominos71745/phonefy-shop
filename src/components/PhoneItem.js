@@ -19,8 +19,10 @@ const PhoneItem = ({
   const addToCart = () => {
     const newItem = {
       name,
+      image,
       price,
       storage,
+      amount: 1,
     };
 
     setCartItems((prevItems) => [...prevItems, newItem]);
@@ -35,7 +37,7 @@ const PhoneItem = ({
             <p>{description}</p>
           </span>
           <span>
-            <p>{price}</p>
+            <p>${price}</p>
             <p>{leasing}</p>
           </span>
         </Cart>

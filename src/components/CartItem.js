@@ -2,9 +2,10 @@ const CartItem = (props) => {
   return (
     <li>
       <div>
-        <h2>{props.name}</h2>
-        <span>{props.price}</span>
-        <span>{props.storage}</span>
+        <p>{props.name}</p>
+        <img src={props.image} alt={props.name} width={200} />
+        <p>${props.price}</p>
+        <p>{props.storage}</p>
       </div>
     </li>
   );
