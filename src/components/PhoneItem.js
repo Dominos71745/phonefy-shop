@@ -13,8 +13,8 @@ const PhoneItem = (props) => {
         storage: props.storage,
       },
     ]);
-    props.toggleCart();
   };
+
   return (
     <div className="flex items-center justify-center mt-4">
       <img width={props.width} src={props.image} alt={props.name} />

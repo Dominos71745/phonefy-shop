@@ -27,12 +27,11 @@ const PhoneList = () => {
     { hex: "#C82233", name: "Red" },
   ];
 
-  const [cart, setCart] = useState([]);
-  const [cartIsShown, setCartIsShown] = useState(false);
-  console.log(cart);
+  const [addToCart, setAddToCart] = useState([]);
+  console.log("What info is adding:", addToCart);
 
-  const cartIsShownHandler = () => {
-    setCartIsShown(true);
+  const addToCartHandler = (item) => {
+    setAddToCart([...addToCart, item]);
   };
 
   return (
@@ -47,11 +46,10 @@ const PhoneList = () => {
         leasing="or $41.62/mo"
         storage="128GB"
         colors={colorArray}
-        cart={cart}
-        setCart={setCart}
-        toggleCart={cartIsShownHandler}
+        cart={addToCart}
+        setCart={addToCartHandler}
       />
-      <PhoneItem
+      {/* <PhoneItem
         name="Iphone 13"
         image={iphone13}
         width={320}
@@ -62,7 +60,7 @@ const PhoneList = () => {
         colors={colorArray1}
         cart={cart}
         setCart={setCart}
-        toggleCart={cartIsShownHandler}
+        
       />
       <PhoneItem
         name="Iphone SE"
@@ -75,9 +73,8 @@ const PhoneList = () => {
         colors={colorArray2}
         cart={cart}
         setCart={setCart}
-        toggleCart={cartIsShownHandler}
-      />
-      {cartIsShown && <Cart cartItems={cart} />}
+      /> */}
+      <Cart cartItems={addToCart} />
     </div>
   );
 };

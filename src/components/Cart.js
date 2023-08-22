@@ -1,7 +1,8 @@
+import React from "react";
 import Modal from "./UI/Modal";
 
 const Cart = (props) => {
-  console.log(props.cartItems);
+  console.log("What is inside cartItems:", props.cartItems); // Add this line to log the cart items
 
   return (
     <div>
@@ -12,6 +13,8 @@ const Cart = (props) => {
               <p>{item.name}</p>
               <p>{item.price}</p>
               <p>{item.storage}</p>
+              <p>Color: {item.color}</p>
+              <p>Description: {item.description}</p>
             </div>
           ))}
         </Modal>
