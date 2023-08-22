@@ -2,39 +2,49 @@ import Button from "./UI/Button";
 import "./PhoneItem.css";
 import Cart from "./UI/CartUI";
 import ColorMapper from "./ColorMapper";
+import { useCart } from "./CartContext";
 
-const PhoneItem = (props) => {
+const PhoneItem = ({
+  name,
+  price,
+  storage,
+  description,
+  colors,
+  leasing,
+  width,
+  image,
+}) => {
+  const { setCartItems } = useCart();
+
   const addToCart = () => {
-    props.setCart([
-      ...props.cart,
-      {
-        name: props.name,
-        price: props.price,
-        storage: props.storage,
-      },
-    ]);
-  };
+    const newItem = {
+      name,
+      price,
+      storage,
+    };
 
+    setCartItems((prevItems) => [...prevItems, newItem]);
+  };
   return (
     <div className="flex items-center justify-center mt-4">
-      <img width={props.width} src={props.image} alt={props.name} />
+      <img width={width} src={image} alt={name} />
       <div className="flex flex-col justify-start gap-4 ml-10">
         <Cart width="300px" height="80px">
           <span>
-            <p>{props.name}</p>
-            <p>{props.description}</p>
+            <p>{name}</p>
+            <p>{description}</p>
           </span>
           <span>
-            <p>{props.price}</p>
-            <p>{props.leasing}</p>
+            <p>{price}</p>
+            <p>{leasing}</p>
           </span>
         </Cart>
         <p>Pick your finish</p>
-        <ColorMapper colors={props.colors} />
+        <ColorMapper colors={colors} />
         <p>Storage</p>
         <div className="flex gap-2">
           <Cart width="150px" height="60px">
-            <p>{props.storage}</p>
+            <p>{storage}</p>
           </Cart>
           <Cart width="150px" height="60px">
             <Button onClick={addToCart}>Add to cart</Button>

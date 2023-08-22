@@ -1,24 +1,27 @@
 import React from "react";
 import Modal from "./UI/Modal";
+import CartItem from "./CartItem";
+import { useCart } from "./CartContext";
 
 const Cart = (props) => {
-  console.log("What is inside cartItems:", props.cartItems); // Add this line to log the cart items
+  const { cartItems } = useCart();
+
+  const cartitems = (
+    <ul>
+      {cartItems.map((item, index) => (
+        <CartItem
+          key={index}
+          name={item.name}
+          price={item.price}
+          storage={item.storage}
+        />
+      ))}
+    </ul>
+  );
 
   return (
     <div>
-      {props.showCart && (
-        <Modal onClose={props.onHideCart}>
-          {props.cartItems.map((item, index) => (
-            <div key={index}>
-              <p>{item.name}</p>
-              <p>{item.price}</p>
-              <p>{item.storage}</p>
-              <p>Color: {item.color}</p>
-              <p>Description: {item.description}</p>
-            </div>
-          ))}
-        </Modal>
-      )}
+      {props.showCart && <Modal onClose={props.onHideCart}>{cartitems}</Modal>}
     </div>
   );
 };

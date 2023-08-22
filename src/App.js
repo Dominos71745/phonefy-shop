@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./components/Navbar";
 import PhoneList from "./components/PhoneList";
 import Cart from "./components/Cart";
+import { CartProvider } from "./components/CartContext";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -15,15 +16,11 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <CartProvider>
       <NavBar onShowCart={showCartHandler} />
       <PhoneList />
-      <Cart
-        cartItems={[]}
-        showCart={cartIsShown}
-        onHideCart={hideCartHandler}
-      />
-    </React.Fragment>
+      <Cart showCart={cartIsShown} onHideCart={hideCartHandler} />
+    </CartProvider>
   );
 }
 

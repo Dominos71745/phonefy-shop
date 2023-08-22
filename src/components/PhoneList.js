@@ -1,12 +1,13 @@
-import { useState } from "react";
 import BrandList from "./BrandList";
-import Cart from "./Cart";
 import PhoneItem from "./PhoneItem";
 import iphone13 from "./images/iphone_13.png";
 import iphone14Pro from "./images/iphone_14.jpg";
 import iphoneSE from "./images/iphone_se.jpg";
+import { useCart } from "./CartContext";
 
 const PhoneList = () => {
+  const { cartItems, setCartItems } = useCart();
+
   const colorArray = [
     { hex: "#61586B", name: "Midnight Purple" },
     { hex: "#F4E8CE", name: "Gold" },
@@ -27,11 +28,8 @@ const PhoneList = () => {
     { hex: "#C82233", name: "Red" },
   ];
 
-  const [addToCart, setAddToCart] = useState([]);
-  console.log("What info is adding:", addToCart);
-
   const addToCartHandler = (item) => {
-    setAddToCart([...addToCart, item]);
+    setCartItems([...cartItems, item]);
   };
 
   return (
@@ -40,16 +38,14 @@ const PhoneList = () => {
       <PhoneItem
         name="Iphone 14 Pro"
         image={iphone14Pro}
-        width={300}
         price="$999"
         description="6.1-inch display"
         leasing="or $41.62/mo"
         storage="128GB"
         colors={colorArray}
-        cart={addToCart}
         setCart={addToCartHandler}
       />
-      {/* <PhoneItem
+      <PhoneItem
         name="Iphone 13"
         image={iphone13}
         width={320}
@@ -58,9 +54,7 @@ const PhoneList = () => {
         leasing="or $29.12/mo"
         storage="128GB"
         colors={colorArray1}
-        cart={cart}
-        setCart={setCart}
-        
+        setCart={addToCartHandler}
       />
       <PhoneItem
         name="Iphone SE"
@@ -71,10 +65,8 @@ const PhoneList = () => {
         leasing="or $17.87/mo"
         storage="64GB"
         colors={colorArray2}
-        cart={cart}
-        setCart={setCart}
-      /> */}
-      <Cart cartItems={addToCart} />
+        setCart={addToCartHandler}
+      />
     </div>
   );
 };
