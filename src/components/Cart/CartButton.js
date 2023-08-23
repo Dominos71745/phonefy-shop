@@ -30,12 +30,12 @@ const CartButton = (props) => {
   }, [cartItems]);
 
   return (
-    <>
+    <div className="flex items-center">
       <button className={btnClasses} onClick={props.onClick}>
         Cart
       </button>
       <span className={classes.badge}>{numberOfCartItems}</span>
-    </>
+    </div>
   );
 };
 
