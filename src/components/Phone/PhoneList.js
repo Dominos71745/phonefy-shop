@@ -4,9 +4,22 @@ import iphone13 from "../../assets/iphone_13.png";
 import iphone14Pro from "../../assets/iphone_14.jpg";
 import iphoneSE from "../../assets/iphone_se.jpg";
 import { useCart } from "../Cart/CartContext";
+import NavBar from "../UI/Navbar";
+import { useState } from "react";
+import Cart from "../Cart/Cart";
 
 const PhoneList = () => {
-  const { cartItems, setCartItems } = useCart();
+  const { cartItems, setCartItems } = useCart([]);
+  const [cartIsShown, setCartIsShown] = useState(false);
+  const [inputText, setInputText] = useState("");
+
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
 
   const colorArray = [
     { hex: "#61586B", name: "Midnight Purple" },
@@ -32,41 +45,59 @@ const PhoneList = () => {
     setCartItems([...cartItems, item]);
   };
 
+  const phoneItems = [
+    {
+      name: "Iphone 14 Pro",
+      image: iphone14Pro,
+      price: "999",
+      description: "6.1-inch display",
+      leasing: "or $41.62/mo",
+      storage: "128GB",
+      colors: colorArray,
+    },
+    {
+      name: "Iphone 13",
+      image: iphone13,
+      price: "699",
+      description: "6.1-inch display",
+      leasing: "or $29.12/mo",
+      storage: "128GB",
+      colors: colorArray1,
+    },
+    {
+      name: "Iphone SE",
+      image: iphoneSE,
+      price: "429",
+      description: "4.7-inch display",
+      leasing: "or $17.87/mo",
+      storage: "64GB",
+      colors: colorArray2,
+    },
+  ];
+
+  const filteredPhoneItems = phoneItems.filter((phoneItem) =>
+    phoneItem.name.toLowerCase().includes(inputText)
+  );
+
   return (
     <div className="flex flex-col">
+      <NavBar onShowCart={showCartHandler} onSearchInputChange={setInputText} />
       <BrandList />
-      <PhoneItem
-        name="Iphone 14 Pro"
-        image={iphone14Pro}
-        price="999"
-        description="6.1-inch display"
-        leasing="or $41.62/mo"
-        storage="128GB"
-        colors={colorArray}
-        setCart={addToCartHandler}
-      />
-      <PhoneItem
-        name="Iphone 13"
-        image={iphone13}
-        width={320}
-        price="699"
-        description="6.1-inch display"
-        leasing="or $29.12/mo"
-        storage="128GB"
-        colors={colorArray1}
-        setCart={addToCartHandler}
-      />
-      <PhoneItem
-        name="Iphone SE"
-        image={iphoneSE}
-        width={320}
-        price="429"
-        description="4.7-inch display"
-        leasing="or $17.87/mo"
-        storage="64GB"
-        colors={colorArray2}
-        setCart={addToCartHandler}
-      />
+      {filteredPhoneItems.map((phoneItem) => (
+        <PhoneItem
+          key={phoneItem.name}
+          name={phoneItem.name}
+          image={phoneItem.image}
+          price={phoneItem.price}
+          width={400}
+          description={phoneItem.description}
+          leasing={phoneItem.leasing}
+          storage={phoneItem.storage}
+          colors={phoneItem.colors}
+          setCart={addToCartHandler}
+        />
+      ))}
+      <Cart showCart={cartIsShown} onHideCart={hideCartHandler} />
     </div>
   );
 };
