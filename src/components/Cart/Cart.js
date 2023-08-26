@@ -14,8 +14,8 @@ const Cart = (props) => {
           key={index}
           name={item.name}
           image={item.image}
-          description={item.description}
           price={item.price}
+          colors={item.colors}
           storage={item.storage}
         />
       ))}

@@ -12,6 +12,7 @@ const PhoneList = () => {
   const { cartItems, setCartItems } = useCart([]);
   const [cartIsShown, setCartIsShown] = useState(false);
   const [inputText, setInputText] = useState("");
+  const [selectedBrand, setSelectedBrand] = useState("");
 
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -48,6 +49,7 @@ const PhoneList = () => {
   const phoneItems = [
     {
       name: "Iphone 14 Pro",
+      brand: "Apple",
       image: iphone14Pro,
       price: "999",
       description: "6.1-inch display",
@@ -57,6 +59,7 @@ const PhoneList = () => {
     },
     {
       name: "Iphone 13",
+      brand: "Apple",
       image: iphone13,
       price: "699",
       description: "6.1-inch display",
@@ -66,6 +69,27 @@ const PhoneList = () => {
     },
     {
       name: "Iphone SE",
+      brand: "Apple",
+      image: iphoneSE,
+      price: "429",
+      description: "4.7-inch display",
+      leasing: "or $17.87/mo",
+      storage: "64GB",
+      colors: colorArray2,
+    },
+    {
+      name: "Iphone SE",
+      brand: "Samsung",
+      image: iphoneSE,
+      price: "429",
+      description: "4.7-inch display",
+      leasing: "or $17.87/mo",
+      storage: "64GB",
+      colors: colorArray2,
+    },
+    {
+      name: "Iphone SE",
+      brand: "Oppo",
       image: iphoneSE,
       price: "429",
       description: "4.7-inch display",
@@ -75,14 +99,23 @@ const PhoneList = () => {
     },
   ];
 
-  const filteredPhoneItems = phoneItems.filter((phoneItem) =>
-    phoneItem.name.toLowerCase().includes(inputText)
-  );
+  const filteredPhoneItems = phoneItems
+    .filter((phoneItem) =>
+      phoneItem.name.toLowerCase().includes(inputText.toLowerCase())
+    )
+    .filter((phoneItem) =>
+      selectedBrand
+        ? phoneItem.brand.toLowerCase() === selectedBrand.toLowerCase()
+        : true
+    );
 
   return (
     <div className="flex flex-col">
       <NavBar onShowCart={showCartHandler} onSearchInputChange={setInputText} />
-      <BrandList />
+      <BrandList
+        selectedBrand={selectedBrand}
+        onSelectBrand={setSelectedBrand}
+      />
       {filteredPhoneItems.map((phoneItem) => (
         <PhoneItem
           key={phoneItem.name}

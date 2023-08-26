@@ -3,6 +3,7 @@ import "./PhoneItem.css";
 import Cart from "../UI/CartUI";
 import ColorMapper from "../Misc/ColorMapper";
 import { useCart } from "../Cart/CartContext";
+import { useState } from "react";
 
 const PhoneItem = ({
   name,
@@ -14,7 +15,13 @@ const PhoneItem = ({
   width,
   image,
 }) => {
+  const [selectedColor, setSelectedColor] = useState("");
   const { setCartItems } = useCart();
+  console.log(selectedColor);
+
+  const selectedColorHandler = (color) => {
+    setSelectedColor(color);
+  };
 
   const addToCart = () => {
     const newItem = {
@@ -22,6 +29,7 @@ const PhoneItem = ({
       image,
       price,
       storage,
+      colors: selectedColor,
       amount: 1,
     };
 
@@ -42,7 +50,8 @@ const PhoneItem = ({
           </span>
         </Cart>
         <p>Pick your finish</p>
-        <ColorMapper colors={colors} />
+        <p>Color - {selectedColor.name}</p>
+        <ColorMapper colors={colors} onSelectColor={selectedColorHandler} />
         <p>Storage</p>
         <div className="flex gap-2">
           <Cart width="150px" height="60px">

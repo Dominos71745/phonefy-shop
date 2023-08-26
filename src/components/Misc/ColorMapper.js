@@ -1,11 +1,12 @@
-import { useState } from "react";
-
-const ColorMapper = ({ colors }) => {
-  const [color, setColor] = useState({});
+const ColorMapper = ({ colors, onSelectColor }) => {
+  const colorClickerHandler = (event) => {
+    const selectedColorIndex = event.target.getAttribute("data-color-index");
+    const selectedColor = colors[selectedColorIndex];
+    onSelectColor(selectedColor);
+  };
 
   return (
     <div>
-      <p>Color - {color.name}</p>
       <div className="flex gap-2">
         {colors.map((color, index) => {
           return (
@@ -13,8 +14,8 @@ const ColorMapper = ({ colors }) => {
               key={index}
               className="dot"
               style={{ backgroundColor: color.hex }}
-              onClick={() => setColor(color)}
-              onMouseOver={() => setColor(color)}
+              onClick={colorClickerHandler}
+              data-color-index={index} // Add data attribute to store the index
             ></span>
           );
         })}
