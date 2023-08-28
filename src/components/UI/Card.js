@@ -1,5 +1,5 @@
 import React from "react";
-import "./CartUI.css";
+import "./Card.css";
 
 const Cart = (props) => {
   const { width, height } = props;
@@ -10,7 +10,7 @@ const Cart = (props) => {
   };
 
   return (
-    <div className="cart" style={cartStyle}>
+    <div className="card" style={cartStyle}>
       {props.children}
     </div>
   );

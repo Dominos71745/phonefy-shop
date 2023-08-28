@@ -5,39 +5,39 @@ import { useCart } from "./CartContext";
 import Button from "../UI/Button";
 
 const Cart = (props) => {
-  const { cartItems } = useCart();
+  const { cartItems, calculateTotal } = useCart();
 
-  const cartitems = (
+  const cartItemsJSX = (
     <ul>
-      {cartItems.map((item, index) => (
+      {cartItems.map((item) => (
         <CartItem
-          key={index}
+          key={item.id}
           name={item.name}
           image={item.image}
           price={item.price}
           colors={item.colors}
           storage={item.storage}
+          quantity={item.amount}
         />
       ))}
     </ul>
   );
 
-  const calculateTotal = () => {
-    const total = cartItems.reduce(
-      (acc, item) => acc + parseFloat(item.price),
-      0
-    );
-    return total.toFixed(2);
-  };
-
   return (
     <div>
       {props.showCart && (
         <Modal onClose={props.onHideCart}>
-          {cartitems}
-          <p>Total amount: ${calculateTotal()} </p>
-          <Button onClick={props.onHideCart}>Close</Button>
-          <Button>Order</Button>
+          {cartItemsJSX}
+          <div className="text-xl">
+            <span className="mt-3">Total amount of the cart:</span>
+            <span className="ml-1 font-bold">${calculateTotal()} </span>
+          </div>
+          <div className="flex float-right gap-2">
+            <Button color="orange" onClick={props.onHideCart}>
+              Close
+            </Button>
+            <Button color="yellow">Order</Button>
+          </div>
         </Modal>
       )}
     </div>

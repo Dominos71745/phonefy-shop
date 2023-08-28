@@ -1,6 +1,6 @@
 import Button from "../UI/Button";
 import "./PhoneItem.css";
-import Cart from "../UI/CartUI";
+import Card from "../UI/Card";
 import ColorMapper from "../Misc/ColorMapper";
 import { useCart } from "../Cart/CartContext";
 import { useState } from "react";
@@ -16,7 +16,7 @@ const PhoneItem = ({
   image,
 }) => {
   const [selectedColor, setSelectedColor] = useState("");
-  const { setCartItems } = useCart();
+  const { addCartItem } = useCart();
   console.log(selectedColor);
 
   const selectedColorHandler = (color) => {
@@ -30,16 +30,15 @@ const PhoneItem = ({
       price,
       storage,
       colors: selectedColor,
-      amount: 1,
     };
 
-    setCartItems((prevItems) => [...prevItems, newItem]);
+    addCartItem(newItem);
   };
   return (
     <div className="flex items-center justify-center mt-4">
       <img width={width} src={image} alt={name} />
       <div className="flex flex-col justify-start gap-4 ml-10">
-        <Cart width="300px" height="80px">
+        <Card width="300px" height="80px">
           <span>
             <p>{name}</p>
             <p>{description}</p>
@@ -48,18 +47,18 @@ const PhoneItem = ({
             <p>${price}</p>
             <p>{leasing}</p>
           </span>
-        </Cart>
+        </Card>
         <p>Pick your finish</p>
         <p>Color - {selectedColor.name}</p>
         <ColorMapper colors={colors} onSelectColor={selectedColorHandler} />
         <p>Storage</p>
         <div className="flex gap-2">
-          <Cart width="150px" height="60px">
+          <Card width="150px" height="60px">
             <p>{storage}</p>
-          </Cart>
-          <Cart width="150px" height="60px">
+          </Card>
+          <Card width="150px" height="60px">
             <Button onClick={addToCart}>Add to cart</Button>
-          </Cart>
+          </Card>
         </div>
       </div>
     </div>
