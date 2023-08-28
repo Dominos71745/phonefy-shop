@@ -15,6 +15,7 @@ const ColorMapper = ({ colors, onSelectColor }) => {
               className="dot"
               style={{ backgroundColor: color.hex }}
               onClick={colorClickerHandler}
+              onMouseEnter={colorClickerHandler}
               data-color-index={index} // Add data attribute to store the index
             ></span>
           );
