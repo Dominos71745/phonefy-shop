@@ -11,8 +11,8 @@ const NavBar = (props) => {
   };
 
   return (
-    <div className="flex justify-evenly items-center bg-black text-white h-16">
-      <h1 className="text-3xl">Phonefy</h1>
+    <div className="flex justify-evenly items-center bg-black text-white h-16 font-roboto">
+      <h1 className="text-4xl">Phonefy</h1>
       <SearchBar onChange={inputHandler} value={inputText} />
       <CartButton onClick={props.onShowCart} />
     </div>

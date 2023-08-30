@@ -35,17 +35,17 @@ const PhoneItem = ({
     addCartItem(newItem);
   };
   return (
-    <div className="flex items-center justify-center mt-4">
+    <div className="flex items-center justify-center mt-4 font-roboto">
       <img width={width} src={image} alt={name} />
-      <div className="flex flex-col justify-start gap-4 ml-10">
+      <div className="flex flex-col justify-start gap-4 ml-10 text-xl">
         <Card width="300px" height="80px">
           <span>
             <p>{name}</p>
-            <p>{description}</p>
+            <p className="text-base">{description}</p>
           </span>
           <span>
             <p>${price}</p>
-            <p>{leasing}</p>
+            <p className="text-base">{leasing}</p>
           </span>
         </Card>
         <p>Pick your finish</p>

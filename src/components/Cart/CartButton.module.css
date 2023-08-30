@@ -4,7 +4,7 @@
   color: rgb(0, 0, 0);
   padding: 0.35rem 3rem;
   border-radius: 25px;
-  font-weight: bold;
+  font-family: "Roboto", sans-serif;
 }
 
 .button:hover,

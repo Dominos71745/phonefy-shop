@@ -9,6 +9,9 @@ module.exports = {
       inset: {
         15: "15vh",
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+      },
     },
   },
   plugins: [],

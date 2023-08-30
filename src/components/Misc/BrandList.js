@@ -2,7 +2,7 @@ const BrandList = ({ selectedBrand, onSelectBrand }) => {
   const brands = ["Apple", "Samsung", "Oppo"];
 
   return (
-    <div className="flex flex-row justify-evenly items-center gap-3 text-2xl mt-5 mb-5">
+    <div className="flex flex-row justify-evenly items-center gap-3 text-2xl mt-5 mb-5 font-roboto">
       {brands.map((brand) => (
         <span
           key={brand}
