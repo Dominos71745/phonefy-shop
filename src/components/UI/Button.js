@@ -5,7 +5,7 @@ const Button = (props) => {
 
   return (
     <button
-      className="rounded-3xl font-bold p-2 px-5"
+      className="rounded-3xl p-2 px-5"
       style={buttonStyle}
       onClick={props.onClick}
     >

@@ -7,7 +7,7 @@ const CartItem = (props) => {
 
   return (
     <li>
-      <div className="flex gap-3 text-2xl mt-5">
+      <div className="flex gap-3 text-2xl mt-5 font-roboto">
         <img src={props.image} alt={props.name} width={100} />
         <div className="flex flex-col flex-grow">
           <span className="font-bold">{props.name}</span>

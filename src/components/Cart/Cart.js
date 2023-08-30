@@ -28,8 +28,8 @@ const Cart = (props) => {
       {props.showCart && (
         <Modal onClose={props.onHideCart}>
           {cartItemsJSX}
-          <div className="text-xl">
-            <span className="mt-3">Total amount of the cart:</span>
+          <div className="text-xl mt-3">
+            <span>Total amount of the cart:</span>
             <span className="ml-1 font-bold">${calculateTotal()} </span>
           </div>
           <div className="flex float-right gap-2">

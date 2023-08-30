@@ -77,26 +77,6 @@ const PhoneList = () => {
       storage: "64GB",
       colors: colorArray2,
     },
-    // {
-    //   name: "Iphone SE",
-    //   brand: "Samsung",
-    //   image: iphoneSE,
-    //   price: "429",
-    //   description: "4.7-inch display",
-    //   leasing: "or $17.87/mo",
-    //   storage: "64GB",
-    //   colors: colorArray2,
-    // },
-    // {
-    //   name: "Iphone SE",
-    //   brand: "Oppo",
-    //   image: iphoneSE,
-    //   price: "429",
-    //   description: "4.7-inch display",
-    //   leasing: "or $17.87/mo",
-    //   storage: "64GB",
-    //   colors: colorArray2,
-    // },
   ];
 
   const filteredPhoneItems = phoneItems
