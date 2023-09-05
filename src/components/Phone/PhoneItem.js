@@ -1,7 +1,8 @@
-import Button from "../UI/Button";
 import "./PhoneItem.css";
+import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ColorMapper from "../Misc/ColorMapper";
+import Storage from "../Misc/Storage";
 import { useCart } from "../Cart/CartContext";
 import { useState } from "react";
 
@@ -16,11 +17,16 @@ const PhoneItem = ({
   image,
 }) => {
   const [selectedColor, setSelectedColor] = useState("");
+  const [selectedStorage, setSelectedStorage] = useState("");
   const { addCartItem } = useCart();
-  console.log(selectedColor);
+  console.log(selectedStorage);
 
   const selectedColorHandler = (color) => {
     setSelectedColor(color);
+  };
+
+  const selectedStorageHandler = (storage) => {
+    setSelectedStorage(storage);
   };
 
   const addToCart = () => {
@@ -28,7 +34,7 @@ const PhoneItem = ({
       name,
       image,
       price,
-      storage,
+      storage: selectedStorage,
       colors: selectedColor,
     };
 
@@ -51,11 +57,9 @@ const PhoneItem = ({
         <p>Pick your finish</p>
         <p>Color - {selectedColor.name}</p>
         <ColorMapper colors={colors} onSelectColor={selectedColorHandler} />
-        <p>Storage</p>
+        <label htmlFor="storage">Storage:</label>
         <div className="flex gap-2">
-          <Card width="150px" height="60px">
-            <p>{storage}</p>
-          </Card>
+          <Storage storage={storage} onSelectStorage={selectedStorageHandler} />
           <Card width="150px" height="60px">
             <Button onClick={addToCart}>Add to cart</Button>
           </Card>

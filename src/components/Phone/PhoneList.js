@@ -46,6 +46,8 @@ const PhoneList = () => {
     setCartItems([...cartItems, item]);
   };
 
+  const storage = ["128GB", "256GB"];
+
   const phoneItems = [
     {
       name: "Iphone 14 Pro",
@@ -54,7 +56,7 @@ const PhoneList = () => {
       price: "999",
       description: "6.1-inch display",
       leasing: "or $41.62/mo",
-      storage: "128GB",
+      storage: storage,
       colors: colorArray,
     },
     {
@@ -106,6 +108,7 @@ const PhoneList = () => {
           description={phoneItem.description}
           leasing={phoneItem.leasing}
           storage={phoneItem.storage}
+          storage1={phoneItem.storage1}
           colors={phoneItem.colors}
           setCart={addToCartHandler}
         />
