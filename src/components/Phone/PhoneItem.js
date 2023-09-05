@@ -16,10 +16,9 @@ const PhoneItem = ({
   width,
   image,
 }) => {
-  const [selectedColor, setSelectedColor] = useState("");
-  const [selectedStorage, setSelectedStorage] = useState("");
+  const [selectedColor, setSelectedColor] = useState(colors[0]);
+  const [selectedStorage, setSelectedStorage] = useState(storage[0]);
   const { addCartItem } = useCart();
-  console.log(selectedStorage);
 
   const selectedColorHandler = (color) => {
     setSelectedColor(color);
@@ -40,6 +39,7 @@ const PhoneItem = ({
 
     addCartItem(newItem);
   };
+
   return (
     <div className="flex items-center justify-center mt-4 font-roboto">
       <img width={width} src={image} alt={name} />
@@ -57,7 +57,7 @@ const PhoneItem = ({
         <p>Pick your finish</p>
         <p>Color - {selectedColor.name}</p>
         <ColorMapper colors={colors} onSelectColor={selectedColorHandler} />
-        <label htmlFor="storage">Storage:</label>
+        <label htmlFor="storage">Storage - {selectedStorage}</label>
         <div className="flex gap-2">
           <Storage storage={storage} onSelectStorage={selectedStorageHandler} />
           <Card width="150px" height="60px">

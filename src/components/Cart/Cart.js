@@ -9,9 +9,9 @@ const Cart = (props) => {
 
   const cartItemsJSX = (
     <ul>
-      {cartItems.map((item) => (
+      {cartItems.map((item, index) => (
         <CartItem
-          key={item.id}
+          key={index}
           name={item.name}
           image={item.image}
           price={item.price}

@@ -66,7 +66,7 @@ const PhoneList = () => {
       price: "699",
       description: "6.1-inch display",
       leasing: "or $29.12/mo",
-      storage: "128GB",
+      storage: storage,
       colors: colorArray1,
     },
     {
@@ -76,7 +76,7 @@ const PhoneList = () => {
       price: "429",
       description: "4.7-inch display",
       leasing: "or $17.87/mo",
-      storage: "64GB",
+      storage: storage,
       colors: colorArray2,
     },
   ];
@@ -108,7 +108,6 @@ const PhoneList = () => {
           description={phoneItem.description}
           leasing={phoneItem.leasing}
           storage={phoneItem.storage}
-          storage1={phoneItem.storage1}
           colors={phoneItem.colors}
           setCart={addToCartHandler}
         />

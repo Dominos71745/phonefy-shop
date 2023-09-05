@@ -9,7 +9,7 @@ const cartReducer = (state, action) => {
     case "ADD_ITEM":
       const existingItemIndex = state.findIndex(
         (item) =>
-          item.name === action.payload.name &&
+          item.id === action.payload.id &&
           item.colors.name === action.payload.colors.name
       );
 
