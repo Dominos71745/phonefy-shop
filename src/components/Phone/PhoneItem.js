@@ -16,7 +16,7 @@ const PhoneItem = ({
   width,
   image,
 }) => {
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
+  const [selectedColor, setSelectedColor] = useState("");
   const [selectedStorage, setSelectedStorage] = useState(storage[0]);
   const { addCartItem } = useCart();
 

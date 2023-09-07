@@ -6,6 +6,7 @@ import Button from "../UI/Button";
 
 const Cart = (props) => {
   const { cartItems, calculateTotal } = useCart();
+  console.log(cartItems);
 
   const cartItemsJSX = (
     <ul>
