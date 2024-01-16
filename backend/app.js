@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
+import dburi from "./dburi.js";
 
 const app = express();
 app.use(cors());
-const uri = "mongodb+srv://domistu71:test123@cluster0.oueyygp.mongodb.net/";
+const uri = dburi;
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
