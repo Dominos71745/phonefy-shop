@@ -3,7 +3,8 @@ import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ColorMapper from "../Misc/ColorMapper";
 import Storage from "../Misc/Storage";
-import { useCart } from "../Cart/CartContext";
+import { addToCart } from "../../store/actions";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 const PhoneItem = ({
@@ -16,9 +17,9 @@ const PhoneItem = ({
   width,
   image,
 }) => {
+  const dispatch = useDispatch();
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedStorage, setSelectedStorage] = useState(storage[0]);
-  const { addCartItem } = useCart();
 
   const selectedColorHandler = (color) => {
     setSelectedColor(color);
@@ -28,16 +29,15 @@ const PhoneItem = ({
     setSelectedStorage(storage);
   };
 
-  const addToCart = () => {
-    const newItem = {
-      name,
-      image,
-      price,
-      storage: selectedStorage,
-      colors: selectedColor,
-    };
-
-    addCartItem(newItem);
+  const newItem = {
+    name,
+    image,
+    price,
+    storage: selectedStorage,
+    colors: selectedColor,
+  };
+  const addToCartHandler = () => {
+    dispatch(addToCart(newItem));
   };
 
   return (
@@ -61,7 +61,7 @@ const PhoneItem = ({
         <div className="flex gap-2">
           <Storage storage={storage} onSelectStorage={selectedStorageHandler} />
           <Card width="150px" height="60px">
-            <Button onClick={addToCart}>Add to cart</Button>
+            <Button onClick={addToCartHandler}>Add to cart</Button>
           </Card>
         </div>
       </div>

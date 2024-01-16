@@ -3,19 +3,20 @@ import PhoneItem from "./PhoneItem";
 import iphone13 from "../../assets/iphone_13.png";
 import iphone14Pro from "../../assets/iphone_14.jpg";
 import iphoneSE from "../../assets/iphone_se.jpg";
-import { useCart } from "../Cart/CartContext";
 import NavBar from "../UI/Navbar";
 import { useState } from "react";
 import Cart from "../Cart/Cart";
+import { addToCart } from "../../store/actions";
 import {
   colorArray,
   colorArray1,
   colorArray2,
   storage,
 } from "../data/constans";
+import { useDispatch } from "react-redux";
 
 const PhoneList = () => {
-  const { cartItems, setCartItems } = useCart([]);
+  const dispatch = useDispatch();
   const [cartIsShown, setCartIsShown] = useState(false);
   const [inputText, setInputText] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
@@ -29,7 +30,7 @@ const PhoneList = () => {
   };
 
   const addToCartHandler = (item) => {
-    setCartItems([...cartItems, item]);
+    dispatch(addToCart(item));
   };
 
   const phoneItems = [

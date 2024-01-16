@@ -4,7 +4,7 @@ import {
   ADD_QUANTITY,
   SUB_QUANTITY,
   EMPTY_CART,
-} from "./action-types/cart-actions";
+} from "./actionTypes";
 
 export const addToCart = (id) => {
   return {

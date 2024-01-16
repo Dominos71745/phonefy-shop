@@ -4,23 +4,22 @@ import {
   ADD_QUANTITY,
   SUB_QUANTITY,
   EMPTY_CART,
-} from "./action";
+} from "./actionTypes";
 
 const initialState = {
   phones: [
     {
-      name: "",
-      price: 0,
-      storage: [],
-      description: "",
-      colors: [],
-      leasing: "",
+      id: 1,
+      name: "Phone 1",
+      price: 100,
+      quantity: 2,
     },
+    // Add other phones as needed
   ],
 };
 
 const cartReducers = (state = initialState, action) => {
-  switch (ADD_TO_CART) {
+  switch (action.type) {
     case ADD_TO_CART:
       return {
         ...state,
@@ -61,7 +60,7 @@ const cartReducers = (state = initialState, action) => {
         ),
       };
     default:
-      break;
+      return state; // Ensure you always return the state
   }
 };
 

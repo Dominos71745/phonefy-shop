@@ -22,3 +22,5 @@ const item = createSlice({
 });
 
 export const { setPhones } = item.actions;
+
+export default item.reducer;

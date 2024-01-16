@@ -1,12 +1,13 @@
 import React from "react";
 import PhoneList from "./components/Phone/PhoneList";
-import { CartProvider } from "./components/Cart/CartContext";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 function App() {
   return (
-    <CartProvider>
+    <Provider store={store}>
       <PhoneList />
-    </CartProvider>
+    </Provider>
   );
 }
 
